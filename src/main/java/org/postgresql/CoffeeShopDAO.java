@@ -9,13 +9,13 @@ public class CoffeeShopDAO {
         String sql = "INSERT INTO drinks (name_en, name_other, price) VALUES (?, ?, ?)";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, nameEn);
-            pstmt.setString(2, nameOther);
-            pstmt.setDouble(3, price);
-            pstmt.executeUpdate();
+                pstmt.setString(1, nameEn);
+                pstmt.setString(2, nameOther);
+                pstmt.setDouble(3, price);
+                pstmt.executeUpdate();
         }
     }
 
-    // Добавьте другие методы для выполнения запросов из задания
+
 }
 

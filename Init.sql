@@ -1,6 +1,6 @@
-CREATE DATABASE coffee_shop;
+CREATE DATABASE CoffeeShop;
 
-\c coffee_shop;
+\c CoffeeShop;
 
 CREATE TABLE drinks (
                         id SERIAL PRIMARY KEY,
