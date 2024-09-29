@@ -2,21 +2,21 @@ CREATE DATABASE CoffeeShop;
 
 \c CoffeeShop;
 
-CREATE TABLE drinks (
+CREATE TABLE IF NOT EXISTS drinks (
                         id SERIAL PRIMARY KEY,
                         name_en VARCHAR(100),
                         name_other VARCHAR(100),
                         price DECIMAL(5, 2)
 );
 
-CREATE TABLE desserts (
+CREATE TABLE IF NOT EXISTS desserts (
                           id SERIAL PRIMARY KEY,
                           name_en VARCHAR(100),
                           name_other VARCHAR(100),
                           price DECIMAL(5, 2)
 );
 
-CREATE TABLE staff (
+CREATE TABLE IF NOT EXISTS staff (
                        id SERIAL PRIMARY KEY,
                        full_name VARCHAR(100),
                        phone VARCHAR(15),
@@ -24,7 +24,7 @@ CREATE TABLE staff (
                        position VARCHAR(50)
 );
 
-CREATE TABLE customers (
+CREATE TABLE IF NOT EXISTS customers (
                            id SERIAL PRIMARY KEY,
                            full_name VARCHAR(100),
                            birth_date DATE,
@@ -33,14 +33,14 @@ CREATE TABLE customers (
                            discount DECIMAL(3, 2)
 );
 
-CREATE TABLE schedule (
+CREATE TABLE IF NOT EXISTS schedule (
                           id SERIAL PRIMARY KEY,
                           staff_id INT REFERENCES staff(id),
                           work_date DATE,
                           shift VARCHAR(50)
 );
 
-CREATE TABLE orders (
+CREATE TABLE IF NOT EXISTS orders (
                         id SERIAL PRIMARY KEY,
                         customer_id INT REFERENCES customers(id),
                         order_date DATE,

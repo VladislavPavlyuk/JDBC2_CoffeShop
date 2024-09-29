@@ -5,15 +5,15 @@ volumes:
 services:
   ts-postgres:
     container_name: coffeeshop
-    image: postgres:latest
+    image: postgres:15.8-alpine
     restart: always
     environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: password
+      POSTGRES_USER: sa
+      POSTGRES_PASSWORD: admin
       POSTGRES_DB: coffeeshop
     volumes:
         - ts-db:/var/lib/postgresql/data
   #      - ./data:/var/lib/postgresql/data
         - ./init-db.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
-      - "5433:5432"
+      - "5438:5432"

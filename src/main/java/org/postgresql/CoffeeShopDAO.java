@@ -15,7 +15,17 @@ public class CoffeeShopDAO {
                 pstmt.executeUpdate();
         }
     }
-
-
+    public void addBarista(String fullName, String phone, String email) throws SQLException {
+        String sql = "INSERT INTO staff (full_name, phone, email, position) VALUES (?, ?, 'Бариста')";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, fullName);
+            pstmt.setString(2, phone);
+            pstmt.setString(3, email);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
 
